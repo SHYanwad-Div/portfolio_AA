@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AeroAspire — Intern Demo Site
 
 Simple responsive portfolio page for AeroAspire internship tasks (About / Photo / Contact).
@@ -17,3 +18,7 @@ Simple responsive portfolio page for AeroAspire internship tasks (About / Photo 
 - Add JavaScript interactivity (greeting, form submission without reload).
 - Deploy to GitHub Pages.
 
+=======
+# portfolio_AA
+internship assignment
+>>>>>>> 63215311d173f83192adfa09971873953d8909d2
