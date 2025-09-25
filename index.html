@@ -11,13 +11,17 @@
     
     <!-- Google font (optional) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <!-- Your stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
     </head>
 <body>
   <!-- Site header with semantic nav -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <h1 class="site-logo">AeroAspire Intern</h1>
+      <h1 class="site-logo">
+  AeroAspire Intern
+  <span class="greeting" style="margin-left:0.5rem; font-size:0.9rem; font-weight:400;"></span>
+</h1>
       <nav class="site-nav" role="navigation" aria-label="Main">
         <ul>
           <li><a href="#about">About</a></li>
@@ -50,7 +54,7 @@
     <aside id="photo" class="photo" aria-labelledby="photo-heading">
       <h2 id="photo-heading">Photo</h2>
       <figure>
-        <img src="images/profile.jpg" alt="Profile photo of [Your Name]" width="400" height="400">
+        <img src="css/images/profile.jpg" alt="Profile photo of Div" width="400" height="400">
         <figcaption>Divya Shyanwad — AeroAspire intern</figcaption>
       </figure>
     </aside>
@@ -87,9 +91,7 @@
     </div>
   </footer>
 
-  <script>
-    // Small JS to show current year (progressively enhanced)
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -20,3 +20,8 @@ This project is a minimal, semantic, responsive site built for the AeroAspire in
 ## Deployment
 - Create a GitHub repo, push your files, enable GitHub Pages from main branch → settings → Pages.
 
+## Sept 24 — JS basics, DOM, events, form handling
+
+- Implemented greeting by time, toggle photo button, and JS-driven contact form that submits without reload.
+- Key JS concepts applied: let/const, event listeners, event.preventDefault(), DOM selection & manipulation, simple client-side validation and accessibility (aria-invalid, aria-live).
+- Verification: greeting, toggle, validation and in-page submission tested locally.
