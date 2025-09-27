@@ -1,3 +1,4 @@
+
 /* js/main.js
    Sept 24 JS tasks:
    - greeting based on time
@@ -200,3 +201,32 @@
   }
 
 })();
+// ---- Dark Mode Toggle ----
+(function darkModeToggle() {
+  const btn = document.getElementById('darkModeToggle');
+  const root = document.documentElement;
+  const KEY = 'darkModeOn';
+
+  function setMode(on) {
+    if (on) {
+      root.classList.add('dark-mode');
+      btn.textContent = 'Light Mode';
+      btn.setAttribute('aria-pressed', 'true');
+      localStorage.setItem(KEY, '1');
+    } else {
+      root.classList.remove('dark-mode');
+      btn.textContent = 'Dark Mode';
+      btn.setAttribute('aria-pressed', 'false');
+      localStorage.setItem(KEY, '0');
+    }
+  }
+
+  // restore on page load
+  setMode(localStorage.getItem(KEY) === '1');
+
+  btn.addEventListener('click', () => {
+    setMode(!root.classList.contains('dark-mode'));
+  });
+})();
+document.getElementById('year').textContent = new Date().getFullYear();
+

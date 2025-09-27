@@ -173,7 +173,16 @@ button:hover {
   transform: translateY(-3px);
   background: var(--accent-600);
 }
-
+.dark-mode {
+  --bg: #181b20;
+  --card: #20222c;
+  --text: #e6e8ed;
+  --muted: #8e95aa;
+  --accent: #319ad0;
+  --accent-600: #217ab0;
+  --glass: rgba(49,154,208,0.10);
+  --accent-contrast: #181b20;
+}
 
 /* Footer */
 .site-footer{ text-align:center; color:var(--muted); padding:1rem 0; font-size:0.95rem; }

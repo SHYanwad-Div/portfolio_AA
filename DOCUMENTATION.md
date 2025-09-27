@@ -65,3 +65,40 @@ This project is a minimal, semantic, responsive site built for the AeroAspire in
 ### Next Steps:
 - Continue implementing portfolio features in separate branches.
 - Practice resolving merge conflicts with collaborative work.
+## Day 4: Styling polish & deployment
+
+## Purpose
+This project is a minimal, semantic, and responsive portfolio site built as part of the AeroAspire internship assignments. It aims to showcase modern web development practices including accessibility, responsive design, and JavaScript enhancements.
+
+## File Structure
+- `index.html` — main HTML document with semantic markup
+- `css/styles.css` — stylesheet implementing mobile-first responsive design and theming (light/dark modes)
+- `js/main.js` — JavaScript for interactive features: greeting, photo toggle, dark mode toggle, contact form handling
+- `images/` — folder for profile photo and other assets
+
+## Design and Accessibility Decisions
+- Mobile-first design ensures optimized performance and usability on phones and small devices.
+- Semantic HTML5 tags (`header`, `main`, `section`, `aside`, `footer`) improve screen reader support and search engine optimization.
+- Interactive elements like buttons and form inputs have accessible labels and visible focus styles to aid keyboard users.
+- The dark mode toggle button uses ARIA attributes for better screen reader interaction.
+
+## How Layout Works
+- The main content area uses CSS Grid to create a single-column layout by default.
+- At viewport widths of 768px and above, the layout switches to two columns (main content + photo sidebar) for better use of space.
+- Flexbox is employed for horizontal navigation menus and wrapping skill tag lists to maintain alignment and responsiveness.
+
+## Interactive Features
+- **Greeting Message**: Personalized greeting changes based on the user's local time.
+- **Photo Toggle**: A button lets users show or hide the profile photo dynamically.
+- **Dark Mode Toggle**: Switch between light and dark themes with user preference saved in localStorage.
+- **Contact Form Handling**: Validation and submission feedback occur without page reload, with submissions rendered live on the page.
+
+## Deployment
+- Initialize a GitHub repository with the project files.
+- Push the code to GitHub and enable GitHub Pages to deploy directly from the `main` branch under repository settings → Pages.
+- The live site will then be hosted at `https://<username>.github.io/<repository>/`.
+
+## Next Steps
+- Integrate backend functionality for persistent contact form submissions.
+- Add additional UI enhancements such as animations and transitions.
+- Optimize for SEO and cross-browser compatibility.
