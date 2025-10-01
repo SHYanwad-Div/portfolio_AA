@@ -102,3 +102,33 @@ This project is a minimal, semantic, and responsive portfolio site built as part
 - Integrate backend functionality for persistent contact form submissions.
 - Add additional UI enhancements such as animations and transitions.
 - Optimize for SEO and cross-browser compatibility.
+# Week 2 — Day 1: Vite + React Setup with MUI
+
+## Purpose
+Begin improving the Week 1 static portfolio by moving into a modern React + Vite setup. Introduced Material-UI (MUI) for cleaner design and faster development.
+
+## Steps
+1. **Initialized Vite project**
+   - Ran `npm create vite@latest portfolio -- --template react`.
+   - Installed dependencies with `npm install`.
+   - Installed MUI: `npm install @mui/material @mui/icons-material @emotion/react @emotion/styled`.
+
+2. **Folder structure**
+   - `src/components` → for reusable React components.
+   - `src/assets` → profile photo, images.
+   - `App.jsx` → main parent component.
+
+3. **First component**
+   - Replaced Vite boilerplate with MUI `AppBar`, `Toolbar`, `Typography`.
+   - Added `Container` to hold homepage content.
+
+4. **Testing**
+   - Ran `npm run dev` and confirmed hot reloading.
+   - Edits to `App.jsx` reflected instantly.
+
+## Reflection
+Compared to Week 1 (plain HTML/CSS), Week 2 introduces a faster dev flow:
+- Vite dev server = instant hot reload.
+- MUI = consistent styled components.
+- React component structure sets up modular portfolio sections.
+

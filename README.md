@@ -68,3 +68,24 @@ text
 ## License
 
 This project is for internship learning purposes only.
+# Portfolio — AeroAspire Internship
+
+## Progress Log
+
+### Week 1
+- **Day 1–4**: Built a static HTML/CSS/JS portfolio with sections (Home, About, Photo, Contact, Footer).
+- **Day 5**: Reflection + bonus improvements.
+
+---
+
+### Week 2
+#### Day 1 — React + Vite Setup
+- Migrated project into a React + Vite environment.
+- Installed Material-UI (MUI) for design system.
+- Created base folder structure:
+  - `src/components`
+  - `src/assets`
+- Implemented first component: header with MUI `AppBar` and `Typography`.
+- Verified hot reloading and build/dev flow.
+
+Next steps (Day 2): Add modular components for Home, About, Photo, Contact, Footer.
