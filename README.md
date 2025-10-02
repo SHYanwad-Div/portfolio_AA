@@ -88,4 +88,16 @@ This project is for internship learning purposes only.
 - Implemented first component: header with MUI `AppBar` and `Typography`.
 - Verified hot reloading and build/dev flow.
 
-Next steps (Day 2): Add modular components for Home, About, Photo, Contact, Footer.
+## Next steps (Day 2): Add modular components for Home, About, Photo, Contact, Footer.
+## Week 2 Day 2 — React Props & TaskCard Component
+## Overview
+Built a reusable TaskCard component and rendered a list of dummy tasks via props. Learned how parent-to-child communication works in React and practiced using MUI’s Card components.
+## Key Features
+TaskCard with title, description, and status.
+Rendered multiple tasks dynamically using .map().
+Conditional styling for status.
+Props flow explained and tested.
+## Learnings
+Props act like function arguments. Changing props triggers re-render.
+Virtual DOM enables efficient UI updates.
+Can prevent unnecessary re-renders with React.memo and hooks.

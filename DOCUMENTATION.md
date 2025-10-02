@@ -131,4 +131,27 @@ Compared to Week 1 (plain HTML/CSS), Week 2 introduces a faster dev flow:
 - Vite dev server = instant hot reload.
 - MUI = consistent styled components.
 - React component structure sets up modular portfolio sections.
+## Week 2 — Day 2: React Components & Props (TaskCard)
+## Purpose
+Continue enhancing the portfolio project by learning how React props work. Built a TaskCard component and rendered multiple dummy tasks dynamically. This teaches how parent → child data flow happens and sets up for future task management with state.
+## Steps
+Created TaskCard component
+Added src/components/TaskCard.jsx.
+Used Material-UI’s Card, CardContent, and Typography for clean design.
+Accepted props: title, description, status.
+Updated App.jsx
+Created a dummy tasks array:
+const tasks = [
+  { id: 1, title: "Setup Vite", description: "Initialized project with React + Vite", status: "done" },
+  { id: 2, title: "Add MUI", description: "Installed Material UI and tested AppBar", status: "in progress" }
+]
 
+Rendered list with .map() → <TaskCard key={t.id} {...t} />.
+Conditional Styling
+Applied color coding inside TaskCard:
+ Green for done.
+ Orange for in progress.
+
+## Testing
+Verified multiple TaskCards render correctly.
+Edited props and confirmed UI updates instantly.
