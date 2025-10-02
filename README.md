@@ -101,3 +101,34 @@ Props flow explained and tested.
 Props act like function arguments. Changing props triggers re-render.
 Virtual DOM enables efficient UI updates.
 Can prevent unnecessary re-renders with React.memo and hooks.
+## Week 2 — Day 3: State & Forms with MUI
+
+### Features Added
+- **Dynamic tasks** using React `useState`.
+- **Add Task Form** (`AddTaskForm.jsx`) with MUI `TextField` + `Button`.
+- **Validation**:
+  - Title required, at least 3 characters.
+  - Error displayed using `helperText`.
+
+### Code Highlights
+- **App.jsx**:
+  - Maintains `tasks` in state.
+  - Passes `handleAddTask` to `AddTaskForm`.
+  - Renders updated task list via `TaskCard`.
+
+- **AddTaskForm.jsx**:
+  - Controlled inputs bound to state.
+  - `onSubmit` validates then adds new task.
+
+### Example Flow
+1. User types in title + description.
+2. State updates with each keystroke (`onChange`).
+3. On submit:
+   - If invalid → error shown.
+   - If valid → new task appended to list.
+4. UI re-renders instantly with the new task.
+
+### Reflection
+- Learned the difference between controlled vs uncontrolled inputs.
+- Understood `useEffect` lifecycle and potential pitfalls (infinite loops, stale data).
+- MUI simplified form building with built-in error handling and styling.

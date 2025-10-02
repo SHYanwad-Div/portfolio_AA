@@ -155,3 +155,21 @@ Applied color coding inside TaskCard:
 ## Testing
 Verified multiple TaskCards render correctly.
 Edited props and confirmed UI updates instantly.
+## Week 2 — Day 3: State & Forms with MUI
+## Purpose
+Added interactivity to the portfolio by managing tasks with React state and building a form using MUI components.
+## Steps
+Introduced useState to store and update tasks.
+Created AddTaskForm with MUI TextField and Button.
+Used controlled inputs (value from state, updated onChange).
+Added validation: title required, min 3 chars.
+On valid submit, new task is appended and displayed via TaskCard.
+
+## Key Learnings
+React state flow: user input → state update → re-render.
+useEffect: runs after render, depends on dependencies.
+Controlled vs uncontrolled inputs: we used controlled for validation.
+MUI made error display + form design easier.
+
+## Reflection
+Moved from static to interactive UI. Learned how to manage form state and validation with React + MUI.
