@@ -1,31 +1,45 @@
-import { AppBar, Toolbar, Typography, Container } from "@mui/material"
-import "./App.css"
+import { Container, Typography } from "@mui/material";
+import TaskCard from "./components/TaskCard";
 
 function App() {
-  return (
-    <>
-      {/* Header */}
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div">
-            My Portfolio
-          </Typography>
-        </Toolbar>
-      </AppBar>
+  // Dummy tasks
+  const tasks = [
+    {
+      id: 1,
+      title: "Setup Vite + React",
+      description: "Initialize project and install Material UI",
+      status: "done",
+    },
+    {
+      id: 2,
+      title: "Create TaskCard",
+      description: "Render dummy tasks using props",
+      status: "in progress",
+    },
+    {
+      id: 3,
+      title: "Documentation",
+      description: "Write reflection for Day 2",
+      status: "pending",
+    },
+  ];
 
-      {/* Main Content */}
-      <Container sx={{ marginTop: 4 }}>
-        <Typography variant="h3" gutterBottom>
-          Welcome to My Portfolio
-        </Typography>
-        <Typography variant="body1">
-          This is the starting point of my React + Vite + MUI based portfolio.
-          Each section (Home, About, Contact, etc.) will be added as a component
-          and enhanced day by day.
-        </Typography>
-      </Container>
-    </>
-  )
+  return (
+    <Container sx={{ mt: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        My Tasks
+      </Typography>
+
+      {tasks.map((task) => (
+        <TaskCard
+          key={task.id}
+          title={task.title}
+          description={task.description}
+          status={task.status}
+        />
+      ))}
+    </Container>
+  );
 }
 
-export default App
+export default App;
