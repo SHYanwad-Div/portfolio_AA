@@ -1,14 +1,13 @@
-/* Remove the Vite boilerplate constraint on #root */
-
-/* global reset - ensure full-height root */
+/* src/App.css — minimal, root-level layout tweaks */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* optional background */
-body {
+#root {
+  width: 100%;
   min-height: 100vh;
-  background: #fbfdff;
+  margin: 0;   /* center/width is now controlled via Container in App.jsx */
+  padding: 0;
 }
