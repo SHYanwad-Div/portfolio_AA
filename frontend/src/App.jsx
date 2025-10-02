@@ -1,30 +1,31 @@
-import { AppBar, Toolbar, Typography, Container } from "@mui/material";
-import "./styles.css"; // from Week 1 (global CSS)
+import { AppBar, Toolbar, Typography, Container } from "@mui/material"
+import "./App.css"
 
 function App() {
   return (
     <>
-      {/* Navbar */}
+      {/* Header */}
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div">
             My Portfolio
           </Typography>
         </Toolbar>
       </AppBar>
 
-      {/* Main Container */}
-      <Container sx={{ mt: 4 }}>
+      {/* Main Content */}
+      <Container sx={{ marginTop: 4 }}>
         <Typography variant="h3" gutterBottom>
           Welcome to My Portfolio
         </Typography>
         <Typography variant="body1">
-          This is the Week 2 – Day 1 setup with React + Vite + MUI.
-          We will keep enhancing this day by day.
+          This is the starting point of my React + Vite + MUI based portfolio.
+          Each section (Home, About, Contact, etc.) will be added as a component
+          and enhanced day by day.
         </Typography>
       </Container>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
