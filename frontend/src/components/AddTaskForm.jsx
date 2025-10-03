@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 
-function AddTaskForm({ onAdd }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+export default function AddTaskForm({ onAdd, initial = { title: "", description: "" }, saving = false }) {
+  const [title, setTitle] = useState(initial.title || "");
+  const [description, setDescription] = useState(initial.description || "");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
@@ -13,17 +13,13 @@ function AddTaskForm({ onAdd }) {
       setError("Title is required");
       return;
     }
-    if (title.length < 3) {
+    if (title.trim().length < 3) {
       setError("Title must be at least 3 characters");
       return;
     }
     setError("");
-    onAdd({
-      id: Date.now(),
-      title,
-      description,
-      status: "pending",
-    });
+    const newTask = { title: title.trim(), description: description.trim(), status: "pending" };
+    onAdd(newTask);
     setTitle("");
     setDescription("");
   };
@@ -31,7 +27,7 @@ function AddTaskForm({ onAdd }) {
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
       <Typography variant="h6" gutterBottom>Add a New Task</Typography>
-      
+
       <TextField
         fullWidth
         label="Task Title"
@@ -40,8 +36,9 @@ function AddTaskForm({ onAdd }) {
         margin="normal"
         required
         error={!!error}
-        helperText={error}
+        helperText={error || "Enter a short, descriptive title"}
       />
+
       <TextField
         fullWidth
         label="Description"
@@ -51,11 +48,10 @@ function AddTaskForm({ onAdd }) {
         multiline
         rows={3}
       />
-      <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
-        Add Task
+
+      <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }} disabled={saving}>
+        {saving ? "Saving…" : "Add Task"}
       </Button>
     </Box>
   );
 }
-
-export default AddTaskForm;

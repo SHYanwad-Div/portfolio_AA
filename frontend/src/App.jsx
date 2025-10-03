@@ -1,62 +1,79 @@
 // src/App.jsx
-import React, { useState } from "react";
-import {
-  AppBar, Toolbar, Typography, Container,
-  Box, IconButton, Button, CssBaseline
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import TaskCard from "./components/TaskCard";
-import AddTaskForm from "./components/AddTaskForm";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import AddTask from "./pages/AddTask";
+import About from "./pages/About";
+
+/* KEY: localStorage key */
+const STORAGE_KEY = "portfolio_tasks_v1";
+
+/* Default seeds (you can modify) */
+const defaultTasks = [
+  { id: 1, title: "Setup Vite + React", description: "Initialize project and install MUI", status: "done" },
+  { id: 2, title: "Create TaskCard component", description: "Render tasks from props", status: "in progress" }
+];
 
 function App() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Setup Vite + React", description: "Initialize project and install Material UI", status: "done" },
-    { id: 2, title: "Create TaskCard component", description: "Render dummy tasks using props and style with MUI", status: "in progress" },
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : defaultTasks;
+    } catch (e) {
+      console.error("Failed to parse tasks from localStorage:", e);
+      return defaultTasks;
+    }
+  });
 
-  const handleAddTask = (task) => {
-    setTasks((prev) => [...prev, task]);
+  // Persist tasks to localStorage whenever they change
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    } catch (e) {
+      console.error("Failed to save tasks to localStorage:", e);
+    }
+  }, [tasks]);
+
+  const addTask = (task) => {
+    setTasks(prev => [...prev, { ...task, id: Date.now() }]);
+  };
+
+  const deleteTask = (id) => {
+    setTasks(prev => prev.filter(t => t.id !== id));
+  };
+
+  const editTask = (id, updated) => {
+    setTasks(prev => prev.map(t => (t.id === id ? { ...t, ...updated } : t)));
   };
 
   return (
-    <>
+    <Router>
       <CssBaseline />
       <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-        <AppBar position="fixed">
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              AeroAspire — Portfolio (Week 2)
-            </Typography>
-            <Button color="inherit" href="#tasks">Tasks</Button>
-            <Button color="inherit" href="#about">About</Button>
-          </Toolbar>
-        </AppBar>
-        <Toolbar />
-
+        <Header />
+        {/* Add a Toolbar spacer to avoid AppBar overlap is inside Header */}
         <Container maxWidth="lg" sx={{ flex: 1, py: 4 }}>
-          <Typography variant="h4" gutterBottom id="tasks">My Tasks</Typography>
-
-          {/* New Form */}
-          <AddTaskForm onAdd={handleAddTask} />
-
-          {/* Task List */}
-          {tasks.map((task) => (
-            <TaskCard key={task.id} {...task} />
-          ))}
+          <Routes>
+            <Route path="/" element={<Home tasks={tasks} onDelete={deleteTask} onEdit={editTask} />} />
+            <Route path="/add" element={<AddTask onAdd={addTask} />} />
+            <Route path="/about" element={<About />} />
+            {/* fallback route */}
+            <Route path="*" element={<Home tasks={tasks} onDelete={deleteTask} onEdit={editTask} />} />
+          </Routes>
         </Container>
 
         <Box component="footer" sx={{ py: 2, textAlign: "center", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-          <Container>
-            <Typography variant="body2" color="text.secondary">
-              © {new Date().getFullYear()} Divya Shyanwad — AeroAspire Internship
-            </Typography>
+          <Container maxWidth="lg">
+            <small style={{ color: "gray" }}>© {new Date().getFullYear()} Divya Shyanwad — AeroAspire Internship</small>
           </Container>
         </Box>
       </Box>
-    </>
+    </Router>
   );
 }
 
